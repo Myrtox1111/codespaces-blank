@@ -1,0 +1,20 @@
+# E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+# E: Unable to lock directory /var/lib/apt/lists/
+# E: Could not open lock file /var/lib/dpkg/lock - open (13: Permission denied)
+# E: Unable to lock the administration directory (/var/lib/dpkg/), are you root?
+
+sudo killall apt apt-get
+
+# If none of the above works, remove the lock files. Run in terminal:
+
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock*
+
+# then reconfigure the packages. Run in terminal:
+
+sudo dpkg --configure -a
+
+# and
+
+sudo apt update
